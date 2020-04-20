@@ -38,11 +38,6 @@ namespace MVCClient
                 .AddGoogle("Google", options => {
                     options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
 
-                    // IConfigurationSection googleAuthNSection = Configuration.GetSection("Authentication:Google");
-
-                    // options.ClientId = googleAuthNSection["ClientId"];
-                    // options.ClientSecret = googleAuthNSection["ClientSecret"];
-
                     options.ClientId = "461410746903-ut4b257efkh526ftisoale9q5a1cgji3.apps.googleusercontent.com";
                     options.ClientSecret = "kQA4BFR55_oHRMemp_OrGEJi";
                 })
@@ -55,9 +50,10 @@ namespace MVCClient
                     options.ClientSecret = "secret";
                     options.ResponseType = "code";
 
-                    options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
-                    options.SignOutScheme = IdentityServerConstants.SignoutScheme;
                     options.SaveTokens = true;
+
+                    options.Scope.Add("api1");
+                    options.Scope.Add("offline_access");
                 });
 
         }
