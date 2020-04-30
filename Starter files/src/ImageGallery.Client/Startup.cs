@@ -58,6 +58,8 @@ namespace ImageGallery.Client
                 options.ClientId = "imagegalleryclient";
                 options.ResponseType = "code";
                 options.Scope.Add("address");
+                options.Scope.Add("roles");
+                options.ClaimActions.MapUniqueJsonKey("role", "role");
 
                 // remove claims we don't need
                 options.ClaimActions.DeleteClaim("sid");
