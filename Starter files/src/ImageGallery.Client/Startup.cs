@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -26,7 +26,7 @@ namespace ImageGallery.Client
             // create an HttpClient used for accessing the API
             services.AddHttpClient("APIClient", client =>
             {
-                client.BaseAddress = new Uri("https://localhost:44366/");
+                client.BaseAddress = new Uri("http://localhost:44366/");
                 client.DefaultRequestHeaders.Clear();
                 client.DefaultRequestHeaders.Add(HeaderNames.Accept, "application/json");
             });             

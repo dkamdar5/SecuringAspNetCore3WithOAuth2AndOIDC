@@ -3,15 +3,14 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "https://localhost:44389/",
-      "sslPort": 44389
+      "applicationUrl": "http://localhost:44389",
+      "sslPort": 0
     }
   },
   "profiles": {
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "https://localhost:44389/",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -19,7 +18,7 @@
     "ImageGallery.Client": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "http://localhost:5000",
+      "applicationUrl": "http://localhost:44389",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
