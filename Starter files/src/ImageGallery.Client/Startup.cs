@@ -65,6 +65,7 @@ namespace ImageGallery.Client
                 options.Scope.Add("address");
                 options.Scope.Add("roles");
                 options.ClaimActions.MapUniqueJsonKey("role", "role");
+                options.Scope.Add("imagegalleryapi");
 
                 // remove claims we don't need
                 options.ClaimActions.DeleteClaim("sid");
