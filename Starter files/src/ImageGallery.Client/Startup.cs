@@ -90,6 +90,7 @@ namespace ImageGallery.Client
                 options.ClaimActions.MapUniqueJsonKey("subscriptionlevel", "subscriptionlevel");
                 options.Scope.Add("country");
                 options.ClaimActions.MapUniqueJsonKey("country", "country");
+                options.Scope.Add("offline_access");
 
                 // remove claims we don't need
                 options.ClaimActions.DeleteClaim("sid");
