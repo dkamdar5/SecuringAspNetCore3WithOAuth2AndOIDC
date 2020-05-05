@@ -52,6 +52,7 @@ namespace ImageGallery.API
                 {
                     options.Authority = "http://localhost:44318";
                     options.ApiName = "imagegalleryapi";
+                    options.ApiSecret = "apisecret";
                     options.RequireHttpsMetadata = false;
                 });
             

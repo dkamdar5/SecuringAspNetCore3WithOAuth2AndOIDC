@@ -40,6 +40,9 @@ namespace Central.IDP
                     "Image Gallery API",
                     new List<string>() { "role" }
                 )
+                {
+                    ApiSecrets = { new Secret("apisecret".Sha256()) }
+                }
             };
         
         public static IEnumerable<Client> Clients =>
@@ -47,6 +50,7 @@ namespace Central.IDP
             { 
                 new Client
                 {
+                    AccessTokenType = AccessTokenType.Reference,
                     AllowOfflineAccess = true,
                     UpdateAccessTokenClaimsOnRefresh = true,
                     ClientName = "Image Gallery",
