@@ -32,6 +32,21 @@ namespace ImageGallery.Client
             services.AddControllersWithViews()
                  .AddJsonOptions(opts => opts.JsonSerializerOptions.PropertyNamingPolicy = null);
 
+            services.AddAuthorization(authorizationOptions =>
+            {
+                authorizationOptions.AddPolicy(
+                    "CanOrderFrame",
+                    policyBuilder =>
+                    {
+                        policyBuilder.RequireAuthenticatedUser();
+                        policyBuilder.RequireClaim("country", "be");
+                        policyBuilder.RequireClaim("subscriptionlevel", "PayingUser");
+                        // OR
+                        //policyBuilder.RequireRole("PayingUser");
+                    }
+                );
+            });
+            
             services.AddHttpContextAccessor();
 
             services.AddTransient<BearerTokenHandler>();
@@ -71,6 +86,10 @@ namespace ImageGallery.Client
                 options.Scope.Add("roles");
                 options.ClaimActions.MapUniqueJsonKey("role", "role");
                 options.Scope.Add("imagegalleryapi");
+                options.Scope.Add("subscriptionlevel");
+                options.ClaimActions.MapUniqueJsonKey("subscriptionlevel", "subscriptionlevel");
+                options.Scope.Add("country");
+                options.ClaimActions.MapUniqueJsonKey("country", "country");
 
                 // remove claims we don't need
                 options.ClaimActions.DeleteClaim("sid");
